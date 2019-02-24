@@ -1,14 +1,17 @@
-import React from "react";
-import RecordSummary from "./RecordSummary";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import RecordSummary from "./RecordSummary";
+import { fetchRecords } from "../../store/actions/recordActions";
 
 const RecordsList = (props) => {
-    const records = props.records;
+    useEffect(() => {
+            props.fetchRecords();
+    },[])
 
     return (
         <div className="record-list">
             {
-                records && records.map(record => {
+                props.records && props.records.map(record => {
                     return (<RecordSummary record={record} key={record.id}/>)
                 })
             }
@@ -17,9 +20,13 @@ const RecordsList = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    return { 
-        records: state.records.records
+    return {records: state.records.records}
+}
+
+const mapDispatchToProps = (dispach) => {
+    return {
+        fetchRecords: () => dispach(fetchRecords())
     }
 }
 
-export default connect(mapStateToProps)(RecordsList)
+export default connect(mapStateToProps, mapDispatchToProps)(RecordsList);

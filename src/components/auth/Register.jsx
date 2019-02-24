@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
+import { register } from "../../store/actions/authActions"
+import { connect } from 'react-redux';
 
 export class Register extends Component {
-    state = {
-
-    }
+    state = {}
 
     handleChange(e) {
         this.setState({
@@ -13,7 +13,7 @@ export class Register extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        console.log(this.state);
+        this.props.registerUser(this.state);
     }
 
     render() {
@@ -51,4 +51,10 @@ export class Register extends Component {
     }
 }
 
-export default Register
+const mapDispatchToProps = (dispach) => {
+    return {
+        registerUser: (credentials) => dispach(register(credentials))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Register)

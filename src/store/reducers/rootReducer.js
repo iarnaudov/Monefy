@@ -1,10 +1,16 @@
+import { combineReducers } from "redux";
+import { firestoreReducer } from "redux-firestore";
+import { firebaseReducer } from "react-redux-firebase";
 import authReducer from "./authReducer";
 import recordReducer from "./recordReducer";
-import { combineReducers } from "redux";
+import categoryReducer from "./categoryReducer";
 
 const rootReducer = combineReducers({
     auth: authReducer,
-    records: recordReducer
+    firestore: firestoreReducer,
+    firebase: firebaseReducer,
+    records: recordReducer,
+    category: categoryReducer,
 });
 
 export default rootReducer;

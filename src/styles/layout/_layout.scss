@@ -16,12 +16,6 @@ html {
 
         form {
             margin-top: 100px;
-
-            input[type=text]:focus,
-            input[type=email]:focus,
-            input[type=radio]:focus {
-                border-color: pink !important;
-            }
         }
     }    
 }

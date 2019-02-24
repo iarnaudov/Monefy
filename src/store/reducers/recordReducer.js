@@ -1,18 +1,38 @@
 const initialState = {
     records: [
-        {id: "1", title: "help me", content: "tohoo"},
-        {id: "2", title: "help you", content: "gdfg"},
-        {id: "3", title: "help WE", content: "gfg"},
+        {
+            id: "1",
+            title: "help me",
+            content: "tohoo"
+        }, {
+            id: "2",
+            title: "help you",
+            content: "gdfg"
+        }, {
+            id: "3",
+            title: "help WE",
+            content: "gfg"
+        }
     ]
 }
-
 
 const recordReducer = (state = initialState, action) => {
     switch (action.type) {
         case "CREATE_RECORD":
             console.log("Created project", action.record.recordName);
             break;
-    
+        case "FETCH_RECORDS":
+            state = {
+                ...state,
+                records: action.records
+            }
+            break;
+        case "FETCH_RECORDS_ERROR":
+            state = {
+                ...state,
+                error: action.error
+            }
+            break;
         default:
             break;
     }
