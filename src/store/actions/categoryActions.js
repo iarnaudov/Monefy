@@ -1,8 +1,8 @@
 export const addCategory = (category) => {
     return (dispatch, getState, {getFirebase, getFirestore}) => {
         const firestore = getFirestore();
-        const categoriesCollection = firestore.collection("categories");
-        categoriesCollection
+        firestore
+            .collection("categories")
             .add(category)
             .then(() => {
                 dispatch({type: "ADD_CATEGORY", category: category})

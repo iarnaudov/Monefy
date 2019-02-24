@@ -4,20 +4,14 @@ import { logout } from "../../store/actions/authActions"
 import { connect } from 'react-redux';
 
 const LoggedInLinks = (props) => {
-
     return (
         <ul className="right">
             <li><NavLink to="/addRecord">Create new Record</NavLink></li>
             <li><NavLink to="/addCategory">Create new Category</NavLink></li>
             <li><NavLink to="/" onClick={props.logOutUser}>Log Out</NavLink></li>
-            <li><NavLink to="/" className="btn btn-floating pink lighten-2">NN</NavLink></li>
+            <li><NavLink to="/" className="btn pink lighten-2">Welcome, {props.username}</NavLink></li>
         </ul>
     )
-}
-
-const mapStateToProps = (state) => {
-    console.log(state);
-    return
 }
 
 const mapDispatchToProps = (dispach) => {
@@ -26,4 +20,4 @@ const mapDispatchToProps = (dispach) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoggedInLinks);
+export default connect(null, mapDispatchToProps)(LoggedInLinks);

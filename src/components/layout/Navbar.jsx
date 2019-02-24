@@ -1,14 +1,23 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, {useEffect} from "react";
+import {Link} from "react-router-dom";
 import LoggedInLinks from "./LoggedInLinks";
 import LoggedOutLinks from "./LoggedOutLinks";
 import "../../styles/layout/Navbar.scss";
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
+import {populateUserProfile} from "../../store/actions/authActions";
 
 const Navbar = (props) => {
-    const { auth } = props;
+    const {auth, userName} = props;
 
-    const links = auth.uid ? <LoggedInLinks/> : <LoggedOutLinks/>
+    useEffect(() => {
+        if (auth.uid) {
+            props.populateUserProfile(auth.uid);
+        }
+    })
+
+    const links = auth.uid
+        ? <LoggedInLinks username={userName}/>
+        : <LoggedOutLinks/>
 
     return (
         <nav className="nav-wrapper grey darken-3">
@@ -22,10 +31,13 @@ const Navbar = (props) => {
 
 const mapStateToProps = (state) => {
     console.log(state);
+    return {auth: state.firebase.auth, userName: state.auth.userName}
+}
+
+const mapDispatchToProps = (dispach) => {
     return {
-        auth: state.firebase.auth
+        populateUserProfile: (userId) => dispach(populateUserProfile(userId))
     }
 }
 
-
-export default connect(mapStateToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

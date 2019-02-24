@@ -1,12 +1,21 @@
 import React from "react";
 import RecordsList from "../record/RecordsList";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 class Dashboard extends React.Component {
+
     componentDidMount() {
-        console.log("yaya");
+    
     }
 
     render() {
+        const { isAuthenticated } = this.props;
+
+        if (!isAuthenticated) {
+            return <Redirect to="/login" />
+        }
+
         return (
             <div className="dashboard container">
                 <div className="row">
@@ -22,4 +31,8 @@ class Dashboard extends React.Component {
     }
 }
 
-export default Dashboard
+const mapStateToProps = (state) => {
+    return { isAuthenticated: state.firebase.auth.uid }
+}
+
+export default connect (mapStateToProps)(Dashboard); 

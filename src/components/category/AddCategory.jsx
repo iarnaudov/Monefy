@@ -1,15 +1,16 @@
 import React, {Component} from 'react'
 import {addCategory} from "../../store/actions/categoryActions";
 import {connect} from "react-redux";
+import { Redirect } from "react-router-dom";
 
 // @ts-ignore
 declare var M
 
 class AddCategory extends Component {
     state = {
-        categoryName: "",
-        categoryColor: "",
-        categoryIcon: "",
+        name: "",
+        color: "",
+        icon: "",
         userId: "default"
     }
 
@@ -29,6 +30,12 @@ class AddCategory extends Component {
 
     componentDidMount = () => {
         M.AutoInit();
+        const { isAuthenticated } = this.props; 
+        
+        this.setState({
+            ...this.state,
+            userId: isAuthenticated
+        })
     }
 
     enableEnterSubmit = () => {
@@ -45,34 +52,42 @@ class AddCategory extends Component {
     }
 
     render() {
+        const { isAuthenticated } = this.props;
+
+        if (!isAuthenticated) {
+            return <Redirect to="/login" />
+        }
+
+
+
         return (
             <div className="form-container">
                 <form className="white" id="formId" onSubmit={(e) => this.handleSubmit(e)}>
                     <h5 className="grey-text text-darken-3">Add Category</h5>
                     <div className="input-field">
                         <i className="material-icons prefix">chrome_reader_mode</i>
-                        <label htmlFor="categoryName">Name</label>
+                        <label htmlFor="name">Name</label>
                         <input
                             type="text"
-                            id="categoryName"
+                            id="name"
                             className="validate"
                             onChange={(e) => this.handleChange(e)}/>
                     </div>
                     <div className="input-field">
                         <i className="material-icons prefix">chrome_reader_mode</i>
-                        <label htmlFor="categoryIcon">Icon</label>
+                        <label htmlFor="icon">Icon</label>
                         <input
                             type="text"
-                            id="categoryIcon"
+                            id="icon"
                             className="validate"
                             onChange={(e) => this.handleChange(e)}/>
                     </div>
                     <div className="input-field">
                         <i className="material-icons prefix">chrome_reader_mode</i>
-                        <label htmlFor="categoryColor">Color</label>
+                        <label htmlFor="color">Color</label>
                         <input
                             type="text"
-                            id="categoryColor"
+                            id="color"
                             className="validate"
                             onChange={(e) => this.handleChange(e)}/>
                     </div>
@@ -85,10 +100,14 @@ class AddCategory extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return { isAuthenticated: state.firebase.auth.uid }
+}
+
 const mapDispatchToProps = (dispach) => {
     return {
         addCategory: (state) => dispach(addCategory(state))
     }
 }
 
-export default connect(null, mapDispatchToProps)(AddCategory)
+export default connect(mapStateToProps, mapDispatchToProps)(AddCategory)

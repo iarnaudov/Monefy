@@ -1,38 +1,68 @@
-export const register = (credentials) => {
-    return (dispatch, getState, { getFirebase }) => {
+export const register = (newUser) => {
+    return (dispatch, getState, {getFirebase, getFirestore}) => {
         const firebase = getFirebase();
+        const firestore = getFirestore();
 
-        firebase.auth.signInWithEmailAndPassword({
-            email: credentials.email,
-            password: credentials.password
-        }).then(() => {
-            dispatch({ type: "LOGIN_SUCCESS"})
-        }).catch((error) => {
-            dispatch({ type: "LOGIN_ERROR", error})
-        })
+        firebase
+            .auth()
+            .createUserWithEmailAndPassword(newUser.email, newUser.password)
+            .then((resp) => {
+                return firestore
+                    .collection("users")
+                    .doc(resp.user.uid)
+                    .set({ username: newUser.username, isAdmin: false })                
+            }).then(() => {
+                dispatch({type: "REGISTER_SUCCESS"})
+            })
+            .catch((error) => {
+                dispatch({type: "REGISTER_ERROR", error})
+            })
     }
 }
 
 export const login = (credentials) => {
-    return (dispatch, getState, { getFirebase }) => {
+    return (dispatch, getState, {getFirebase}) => {
         const firebase = getFirebase();
         console.log(firebase);
-        firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password).then(() => {
-            dispatch({ type: "LOGIN_SUCCESS"})
-        }).catch((error) => {
-            dispatch({ type: "LOGIN_ERROR", error})
-        })
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(credentials.email, credentials.password)
+            .then(() => {
+                dispatch({type: "LOGIN_SUCCESS"})
+            })
+            .catch((error) => {
+                dispatch({type: "LOGIN_ERROR", error})
+            })
     }
 }
 
 export const logout = () => {
-    return (dispatch, getState, { getFirebase }) => {
+    return (dispatch, getState, {getFirebase}) => {
         const firebase = getFirebase();
         console.log(firebase);
-        firebase.auth().signOut().then(() => {
-            dispatch({ type: "LOGOUT_SUCCESS"})
-        }).catch((error) => {
-            dispatch({ type: "LOGOUT_ERROR", error})
-        })
+        firebase
+            .auth()
+            .signOut()
+            .then(() => {
+                dispatch({type: "LOGOUT_SUCCESS"})
+            })
+            .catch((error) => {
+                dispatch({type: "LOGOUT_ERROR", error})
+            })
     }
+}
+
+export const passwordDoesNotMatch = () => {
+    return (dispatch) => {
+        dispatch({type: "PASSWORDS_DOES_NOT_MATCH"})
+    }
+}
+
+export const populateUserProfile = (userId) => {
+     return (dispatch, getState, {getFirebase, getFirestore}) => {
+        const firestore = getFirestore();
+        firestore.collection("users").doc(userId).get().then((users) => {
+            dispatch({type: "GET_USER_PROFILE", username: users.data()})
+        })
+     }
 }
