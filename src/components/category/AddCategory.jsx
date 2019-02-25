@@ -22,7 +22,6 @@ class AddCategory extends Component {
     }
 
     handleChange(e) {
-        debugger
         this.setState({
             [e.target.id]: e.target.value
         }, () => {
@@ -49,7 +48,6 @@ class AddCategory extends Component {
         M.AutoInit();
         this.setUserAuthentication();
         this.addIconsEventListener();
-       // $("#colorPicker").tinycolorpicker();
     }
 
     setUserAuthentication() {
@@ -77,12 +75,12 @@ class AddCategory extends Component {
             focusConfirm: false,
             onBeforeOpen: () => {
                 this.addIconsEventListener();
-                $("#color").on("click", (e) => {
+                $("#color").on("input", (e) => {
                     this.handleChange(e);
                 })
             },
             preConfirm: () => {
-                const selector = $(".far.selectedColor")
+                const selector = $(".far.selected")
                 if (selector.length > 0) {
                     return selector[0]
                         .outerHTML
@@ -96,6 +94,7 @@ class AddCategory extends Component {
                 console.log(value);
                 $("#categoryIcon").removeClass();
                 $("#categoryIcon").addClass("far").addClass("fa-" + value.value);
+                $("#categoryIcon").css("color", this.state.color)
                 M.updateTextFields();
             } else {
                 if (value.value === "") {
@@ -108,11 +107,14 @@ class AddCategory extends Component {
     }
 
     addIconsEventListener() {
+        $(".far.selected").css("color", this.state.color);
         var self = this;
         $('.far')
             .on("click", function () {
+                $('.far').removeClass("selected");
                 $('.far').css("color", self.colors.default);
                 $(this).css("color", self.state.color);
+                $(this).addClass("selected");
             });
     }
 
@@ -140,22 +142,28 @@ class AddCategory extends Component {
 
         return (
             <div className="form-container">
-                <div id="colorPicker">
-                </div>
                 <form className="white" id="formId" onSubmit={(e) => this.handleSubmit(e)}>
-                    <h5 className="grey-text text-darken-3">Add Category</h5>
-                    <div className="input-field">
-                        <i className="material-icons prefix">chrome_reader_mode</i>
-                        <label htmlFor="name">Name</label>
-                        <input
-                            type="text"
-                            id="name"
-                            className="validate"
-                            onChange={(e) => this.handleChange(e)}/>
+                <div class="container">
+                    <div class="row">
+                        <h5 className="grey-text text-darken-3">Add Category</h5>
                     </div>
-                    <div className="input-field">
-                        <i id="categoryIcon" className="far fa-check-circle" onClick={() => this.openCategoryModal()}></i>
+                    <div class="row">
+                        <div class="col s2">
+                            <i id="categoryIcon" className="far fa-check-circle" onClick={() => this.openCategoryModal()}></i>
+                        </div>
+                        <div class="col s10">
+                            <div className="input-field">
+                            <label htmlFor="name">Name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                className="validate"
+                                onChange={(e) => this.handleChange(e)}/>
+                            </div>
+                        </div>
+
                     </div>
+                </div>
                     <div className="input-field">
                         <button id="addCategoryBtn" className="btn pink lighten-1">Add Category</button>
                     </div>

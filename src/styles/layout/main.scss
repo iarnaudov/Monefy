@@ -4,10 +4,6 @@
     margin-left:55px;
 }
 
-.col {
-    border: 1px solid red;
-}
-
 .form-container {
     width:30%;
     margin: 0 auto;
@@ -22,10 +18,8 @@ p.radioButton {
     cursor: pointer;
 }
 
-.defaultColor {
-    color: #545454;
-}
-
-.selectedColor {
-    color: #3085d6;
+#categoryIcon {
+    position: relative;
+    top: 15px;
+    right: 10px;
 }
