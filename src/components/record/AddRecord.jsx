@@ -23,15 +23,12 @@ class AddRecord extends React.Component {
         this.setState({
             "userId": this.props.isAuthenticated
         }, () => {
-            this
-                .props
-                .addRecord(this.state);
+            this.props.addRecord(this.state);
         });
     }
 
     componentDidMount() {
         this.initializeDatePicker();
-
     }
 
     initializeDatePicker() {
@@ -42,9 +39,7 @@ class AddRecord extends React.Component {
             format: "dd/mm/yyyy"
         };
 
-        M
-            .Datepicker
-            .init($(".datepicker"), options);
+        M.Datepicker.init($(".datepicker"), options);
     }
 
     render() {

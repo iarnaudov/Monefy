@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import {Link} from "react-router-dom";
 import LoggedInLinks from "./LoggedInLinks";
 import LoggedOutLinks from "./LoggedOutLinks";
-import "../../styles/layout/Navbar.scss";
+import "../../styles/layout/main.scss";
 import {connect} from 'react-redux';
 import {populateUserProfile} from "../../store/actions/authActions";
 

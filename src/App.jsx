@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Dashboard from "./components/dashboard/Dashboard";
-import "./styles/layout/Navbar.scss"
+import "./styles/layout/main.scss"
 import RecordSummary from "./components/record/RecordSummary";
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
