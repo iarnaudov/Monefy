@@ -17,6 +17,19 @@ const recordReducer = (state = initialState, action) => {
                 error: action.error
             }
             break;
+        case "GET_USER_CATEGORIES":
+            state = {
+                ...state,
+                userCategories: action.userCategories
+            }
+            console.log(state);
+            break;
+        case "GET_USER_CATEGORIES_ERROR":
+            state = {
+                ...state,
+                error: action.error
+            }
+            break;     
         default:
             break;
     }

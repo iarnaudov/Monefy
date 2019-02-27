@@ -1,32 +1,16 @@
 import {firebaseSnapshotToArray} from "../../utility";
+import Swal from 'sweetalert2';
 
 export const addRecord = (record) => {
     return (dispatch, getState, {getFirebase, getFirestore}) => {
         const firestore = getFirestore();
-        firestore
-            .collection("categories")
-            .where("name", "==", record.category)
-            .limit(1)
-            .get()
-            .then((snapshot) => {
-                const items = firebaseSnapshotToArray(snapshot);
-                if (items.length > 0) {
-                    record.category = firebaseSnapshotToArray(snapshot)[0]
-                } else {
-                    record.category = ""
-                }
-
-                firestore
-                    .collection("records")
-                    .add(record)
-                    .then(() => {
-                        dispatch({type: "ADD_RECORD", record: record})
-                    })
-                    .catch((error) => {
-                        dispatch({type: "ADD_RECORD_ERROR", error})
-                    });
-            })
-
+        firestore.collection("records").add(record);
+        Swal.fire({
+            title:"Successfully Created Item",
+            type:"success",
+        }).then(() => {
+            window.location.reload();
+        })
     }
 }
 
@@ -41,6 +25,22 @@ export const fetchRecords = () => {
             })
             .catch((error) => {
                 dispatch({type: "FETCH_RECORDS_ERROR", error})
+            })
+    }
+}
+
+export const getUserCategories = (userId) => {
+    return (dispatch, getState, {getFirebase, getFirestore}) => {
+        const firestore = getFirestore();
+        firestore
+            .collection("categories")
+            .where("userId", "==", userId)
+            .get()
+            .then((snapshot) => {
+                dispatch({type: "GET_USER_CATEGORIES", userCategories: firebaseSnapshotToArray(snapshot)})
+            })
+            .catch((error) => {
+                dispatch({type: "GET_USER_CATEGORIES_ERROR", error})
             })
     }
 }
