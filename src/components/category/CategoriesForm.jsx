@@ -207,7 +207,7 @@ class CategoriesForm extends Component {
                     </div>
                     <div className="row">
                         <div className="col s2">
-                            <i id="categoryIcon" className="far fa-check-circle" onClick={() => this.openCategoryModal()}></i>
+                            <i id="categoryIcon" className="far fa-question-circle" onClick={() => this.openCategoryModal()}></i>
                         </div>
                         <div className="col s10">
                             <div className="input-field">
@@ -236,7 +236,7 @@ class CategoriesForm extends Component {
                     </div>
                 </div>
                     <div className="row">
-                        <button id="addCategoryBtn" className="btn pink lighten-1 col s5 offset-s3">Add Category</button>
+                        <button id="addCategoryBtn" className="btn blue lighten-1 col s5 offset-s3">Add Category</button>
                     </div>
                 </form>
             </div>

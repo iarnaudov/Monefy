@@ -300,7 +300,7 @@ class RecordsForm extends React.Component {
                     <i className="fas fa-trash-alt right deleteRecord"></i>
                     <div className="row">
                         <div className="input-field col s12 offset-s5">
-                            <i id="categoryIcon" className="far fa-check-circle" onClick={() => this.openCategoryModal()}></i>
+                            <i id="categoryIcon" className="far fa-question-circle" onClick={() => this.openCategoryModal()}></i>
                         </div>
                     </div>
                     <div className="row">
@@ -339,7 +339,7 @@ class RecordsForm extends React.Component {
                     </div>
                     <div className="input-field">
                         <div className="row">
-                            <button className="btn pink lighten-1 col s5 offset-s3">Add Record</button>
+                            <button className="btn blue lighten-1 col s5 offset-s3">Add Record</button>
                         </div>
                     </div>
                 </form>

@@ -5,12 +5,12 @@ import { connect } from 'react-redux';
 
 const LoggedInLinks = (props) => {
     return (
-        <ul className="right">
+        <ul className="right navbar">
             <li><NavLink to="/recordsForm">Create new Record</NavLink></li>
             <li><NavLink to="/categoriesForm">Create new Category</NavLink></li>
             <li><NavLink to="/myCategories">My Categories</NavLink></li>
             <li><NavLink to="/" onClick={props.logOutUser}>Log Out</NavLink></li>
-            <li><NavLink to="/" className="btn pink lighten-2">Welcome, {props.username}</NavLink></li>
+            <li><NavLink to="/" className="btn blue lighten-1">Welcome, {props.username}</NavLink></li>
         </ul>
     )
 }

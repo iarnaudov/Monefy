@@ -114,7 +114,7 @@ export class Register extends Component {
                             onChange={(e) => this.handleChange(e)}/>
                     </div>
                     <div className="input-field">
-                        <button className="btn pink lighten-1">Register</button>
+                        <button className="btn blue lighten-1">Register</button>
                         <div className="red-text center">
                             {authError
                                 ? <p>

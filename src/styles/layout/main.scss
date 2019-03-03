@@ -4,9 +4,20 @@ $veryLightGray: #f3f3f3;
 $lightGray: #b4b1b1;
 $hoverColor: #e9f5ff;
 $cyan: #01a59a;
+$pink:rgba(255,99,132,1);
+$blue: rgba(54, 162, 235, 1);
+$yellow: rgba(255, 206, 86, 1);
+$lightBlue: rgba(75, 192, 192, 1);
+$violet: rgba(153, 102, 255, 1);
+$orange: rgba(255, 159, 64, 1);
 
 .row {
     margin:0 !important;
+}
+
+ul.navbar li a:hover {
+    background-color: $blue;
+    border-radius: 2px;
 }
 
 .rightMer {
@@ -121,8 +132,8 @@ i {
             padding: 20px;
         }
         span:nth-child(2) {
-            border-right: 2px solid $cyan;
-            border-left: 2px solid $cyan;
+            border-right: 2px solid $blue;
+            border-left: 2px solid $blue;
         }
     }
 }
@@ -149,12 +160,12 @@ i {
                 cursor: pointer;
 
                 &:hover {
-                    background: $cyan;
+                    background: $blue;
                     color: white;
                 }
             }
             & .selectedMonth {
-                    background: $cyan;
+                    background: $blue;
                     color: white; 
             }
         }
@@ -172,7 +183,7 @@ i {
                 cursor: pointer;
 
                 &:hover {
-                    background: $cyan;
+                    background: $blue;
                     color: white;
                 }
             
@@ -184,7 +195,7 @@ i {
             }
 
             & .selectedYear {
-                background: $cyan;
+                background: $blue;
                 color: white; 
             }
 

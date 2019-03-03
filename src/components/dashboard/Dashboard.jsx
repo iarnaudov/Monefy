@@ -223,8 +223,8 @@ class Dashboard extends React.Component {
             <div className="dashboard">
                 <div className="row">
                     <div className="col s12 m6">
-                         <div className="input-field col s12 center-align datepickers-container">
-                           <YearMonthPicker selectYear={(e) => this.selectYear(e)} selectMonth={(e) => this.selectMonth(e)}/>
+                        <div className="input-field col s12 center-align datepickers-container">
+                            <YearMonthPicker selectYear={(e) => this.selectYear(e)} selectMonth={(e) => this.selectMonth(e)}/>
                         </div>
                         <RecordsList/>
                     </div>

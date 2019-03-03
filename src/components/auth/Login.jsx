@@ -41,7 +41,7 @@ class Login extends Component {
                         <input type="password" id="password" onChange={(e) => this.handleChange(e)} />
                     </div>
                     <div className="input-field">
-                        <button className="btn pink lighten-1">Log In</button>
+                        <button className="btn blue lighten-1">Log In</button>
                         <div className="red-text center">
                             { this.props.authError ? <p>{this.props.authError}</p> : null }
                         </div>
