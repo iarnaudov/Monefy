@@ -73,7 +73,7 @@ class AddCategory extends Component {
             html: `<input type="color" id="color" class="browser-default" value="${this.state.color}">
                     </br>
                     </br>
-                    <i class="far fa-angry"></i>
+                    <i class="fas fa-bed"></i>
                     <i class="far fa-sun"></i>
                     <i class="fas fa-paw"></i>
                     <i class="fas fa-gift"></i>
@@ -97,7 +97,7 @@ class AddCategory extends Component {
                     <i class="fas fa-dollar-sign"></i>
                     <i class="far fa-heart"></i>
                     </br>
-                    <i class="fas fa-gift"></i>
+                    <i class="fas fa-plane-departure"></i>
                     <i class="fas fa-piggy-bank"></i>
                     <i class="fas fa-seedling"></i>
                     <i class="fas fa-hand-holding-usd"></i>

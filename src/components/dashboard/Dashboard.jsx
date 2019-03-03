@@ -1,5 +1,5 @@
 import React from "react";
-import RecordsList from "../record/RecordsList";
+import RecordsList from "../Record/RecordsList";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 

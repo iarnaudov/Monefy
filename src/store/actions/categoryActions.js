@@ -12,7 +12,7 @@ export const addCategory = (category) => {
                     title:"Successfully Created Category",
                     type:"success",
                 }).then(() => {
-                    window.location.reload();
+                    //window.location.reload();
                 })
             })
             .catch((error) => {

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
-import Dashboard from "./components/dashboard/Dashboard";
+import Dashboard from "./components/Dashboard/Dashboard";
 import "./styles/layout/main.scss"
-import RecordSummary from "./components/record/RecordSummary";
-import Login from './components/auth/Login';
-import Register from './components/auth/Register';
-import AddCategory from './components/category/AddCategory';
-import AddRecord from './components/record/AddRecord';
+import RecordSummary from "./components/Record/RecordSummary";
+import Login from './components/Auth/Login';
+import Register from './components/Auth/Register';
+import AddCategory from './components/Category/AddCategory';
+import MyCategories from './components/Category/MyCategories';
+import AddRecord from './components/Record/AddRecord';
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
             <Route path="/register" component={Register} />
             <Route path="/addCategory" component={AddCategory} />
             <Route path="/addRecord" component={AddRecord} />
+            <Route path="/myCategories" component={MyCategories} />
           </Switch>
         </div>
       </BrowserRouter>

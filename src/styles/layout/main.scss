@@ -1,5 +1,12 @@
 @import "layout";
 
+$veryLightGray: #f3f3f3;
+$lightGray: #b4b1b1;
+
+.row {
+    margin:0 !important;
+}
+
 .rightMer {
     margin-left:55px;
 }
@@ -27,10 +34,83 @@ i {
     cursor: pointer;
     padding: 5px 10px;
 }
-
+.deleteRecord {
+    font-size: 25px;
+    color:rgba(206, 12, 12, 0.904);
+}
+.deleteCategory {
+    font-size: 30px;
+    color: rgba(206, 12, 12, 0.904);
+    position: absolute;
+    left: 65%;
+    line-height: 40px;
+}
 .categoryIconContainer {
     display: inline-block;
 }
 
+.category {
+    &-container {
+        width: 30%;
+        margin: 50px auto;
+        border: 1px solid gray;
+        box-shadow: 0 0 1px 0px black;
+        cursor: pointer;
+
+        .row {
+            border-bottom: 1px solid #b8b8b8;
+
+            &:hover {
+                background-color: #e9f5ff;
+            }
+        }
+    }
+    &-title {
+        line-height: 45px;
+        font-size: 26px;
+    }
+    &-row {
+        &:hover {
+            background-color: #e9f5ff;
+        }
+    }
+}
+.records-list {
+    margin-top: 50px;
+
+    .date-card {
+        border:1px solid $lightGray;
+        margin-bottom: 30px;
+
+        &-date-total-info {
+            line-height: 30px;
+            border:1px solid $lightGray;
+        }
+        &-date {
+            margin-left: 10px;
+        }
+        &-total {
+            margin-right: 10px;
+            span {
+                padding: 7px;
+            }
+        }
+        &-title {
+            line-height: 50px;
+            font-size: 20px;
+        }
+        &-row {
+            border:1px solid $lightGray;
+            cursor: pointer;
+            &:hover {
+                background-color: #e9f5ff;
+            }
+
+            .money {
+                padding-right: 7px
+            }
+        }
+    }
+}
 
 
