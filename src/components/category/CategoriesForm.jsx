@@ -8,7 +8,7 @@ import $ from 'jquery';
 // @ts-ignore
 declare var M
 
-class AddCategory extends Component {
+class CategoriesForm extends Component {
     state = {
         name: "",
         color: "#3085d6",
@@ -254,4 +254,4 @@ const mapDispatchToProps = (dispach) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddCategory)
+export default connect(mapStateToProps, mapDispatchToProps)(CategoriesForm)

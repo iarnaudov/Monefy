@@ -6,9 +6,9 @@ import "./styles/layout/main.scss"
 import RecordSummary from "./components/Record/RecordSummary";
 import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
-import AddCategory from './components/Category/AddCategory';
+import CategoriesForm from './components/Category/CategoriesForm';
 import MyCategories from './components/Category/MyCategories';
-import AddRecord from './components/Record/AddRecord';
+import RecordsForm from './components/Record/RecordsForm';
 
 class App extends Component {
   render() {
@@ -21,8 +21,8 @@ class App extends Component {
             <Route path="/record/:id" component={RecordSummary} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
-            <Route path="/addCategory" component={AddCategory} />
-            <Route path="/addRecord" component={AddRecord} />
+            <Route path="/categoriesForm" component={CategoriesForm} />
+            <Route path="/recordsForm" component={RecordsForm} />
             <Route path="/myCategories" component={MyCategories} />
           </Switch>
         </div>

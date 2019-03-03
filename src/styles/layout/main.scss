@@ -2,6 +2,8 @@
 
 $veryLightGray: #f3f3f3;
 $lightGray: #b4b1b1;
+$hoverColor: #e9f5ff;
+$cyan: #01a59a;
 
 .row {
     margin:0 !important;
@@ -58,10 +60,10 @@ i {
         cursor: pointer;
 
         .row {
-            border-bottom: 1px solid #b8b8b8;
+            border-bottom: 1px solid $lightGray;
 
             &:hover {
-                background-color: #e9f5ff;
+                background-color: $hoverColor;
             }
         }
     }
@@ -71,46 +73,127 @@ i {
     }
     &-row {
         &:hover {
-            background-color: #e9f5ff;
+            background-color: $hoverColor;
         }
     }
 }
-.records-list {
-    margin-top: 50px;
+.records {
+    &-list {
+        margin-top: 30px;
 
-    .date-card {
-        border:1px solid $lightGray;
-        margin-bottom: 30px;
-
-        &-date-total-info {
-            line-height: 30px;
+        .date-card {
             border:1px solid $lightGray;
-        }
-        &-date {
-            margin-left: 10px;
-        }
-        &-total {
-            margin-right: 10px;
-            span {
-                padding: 7px;
-            }
-        }
-        &-title {
-            line-height: 50px;
-            font-size: 20px;
-        }
-        &-row {
-            border:1px solid $lightGray;
-            cursor: pointer;
-            &:hover {
-                background-color: #e9f5ff;
-            }
+            margin-bottom: 30px;
 
-            .money {
-                padding-right: 7px
+            &-date-total-info {
+                line-height: 30px;
+                border:1px solid $lightGray;
+            }
+            &-date {
+                margin-left: 10px;
+            }
+            &-total {
+                margin-right: 10px;
+                span {
+                    padding: 7px;
+                }
+            }
+            &-title {
+                line-height: 50px;
+                font-size: 20px;
+            }
+            &-row {
+                border:1px solid $lightGray;
+                cursor: pointer;
+                &:hover {
+                    background-color: $hoverColor;
+                }
+
+                .money {
+                    padding-right: 7px
+                }
             }
         }
     }
+    &-totals {
+        text-align: center;
+        span {
+            padding: 20px;
+        }
+        span:nth-child(2) {
+            border-right: 2px solid $cyan;
+            border-left: 2px solid $cyan;
+        }
+    }
+}
+
+.dashboard {
+    width: 80%;
+    margin: 0 auto;
+
+    ul.tabs {
+        margin-top:30px;
+    }
+
+    .datepickers-container {
+        padding: 0;
+
+         .month-picker {
+            background: gray;
+            border: 1px solid gray;
+
+            .month-select {
+                background: white;
+                display: inline-block;
+                padding: 10px;
+                cursor: pointer;
+
+                &:hover {
+                    background: $cyan;
+                    color: white;
+                }
+            }
+            & .selectedMonth {
+                    background: $cyan;
+                    color: white; 
+            }
+        }
+
+         .year-picker {
+            border: 1px solid gray;
+
+            display: flex;
+            justify-content: space-around;
+
+            .year-select {
+                background: white;
+                display: inline-block;
+                padding: 10px 30px;
+                cursor: pointer;
+
+                &:hover {
+                    background: $cyan;
+                    color: white;
+                }
+            
+
+            }
+
+            &.row:after {
+                    content: unset !important;
+            }
+
+            & .selectedYear {
+                background: $cyan;
+                color: white; 
+            }
+
+        }
+    }
+
+   
+
+   
 }
 
 

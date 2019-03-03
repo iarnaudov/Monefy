@@ -6,8 +6,8 @@ import { connect } from 'react-redux';
 const LoggedInLinks = (props) => {
     return (
         <ul className="right">
-            <li><NavLink to="/addRecord">Create new Record</NavLink></li>
-            <li><NavLink to="/addCategory">Create new Category</NavLink></li>
+            <li><NavLink to="/recordsForm">Create new Record</NavLink></li>
+            <li><NavLink to="/categoriesForm">Create new Category</NavLink></li>
             <li><NavLink to="/myCategories">My Categories</NavLink></li>
             <li><NavLink to="/" onClick={props.logOutUser}>Log Out</NavLink></li>
             <li><NavLink to="/" className="btn pink lighten-2">Welcome, {props.username}</NavLink></li>

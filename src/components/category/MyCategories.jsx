@@ -17,7 +17,8 @@ export class MyCategories extends Component {
 
     openCategoryWindow(recordId) {
         Swal.fire({
-            title: "Are you sure?",
+            title: "Delete this category?",
+            text: "This will delete all the records related to this category",
             type: "error",
             confirmButtonColor: "#3569e0",
             confirmButtonText: "Yes",
@@ -66,7 +67,7 @@ export class MyCategories extends Component {
                                                 <i className={`${category.icon[0]} + " " + ${category.icon[1]}`} style={{ color: category.color }}></i>
                                             </div>
                                             <div className="col s8 category-title">{category.name}</div>
-                                            <i className="fas fa-times-circle right deleteCategory" onClick={() => this.openCategoryWindow(category.id)}></i>
+                                            <i className="fas fa-trash-alt right deleteCategory" onClick={() => this.openCategoryWindow(category.id)}></i>
                                         </div>
                                     </div>
                         })

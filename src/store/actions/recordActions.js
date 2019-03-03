@@ -49,15 +49,17 @@ export const deleteRecord = (recordId, routerHistory) => {
     }
 }
 
-export const fetchRecords = (userId) => {
+export const fetchRecords = (userId, monthYearString) => {
     return (dispatch, getState, {getFirebase, getFirestore}) => {
         const firestore = getFirestore();
+
         firestore
             .collection("records")
             .where("userId", "==", userId)
             .get()
             .then((snapshot) => {
-                dispatch({type: "FETCH_RECORDS", records: firebaseSnapshotToArray(snapshot)})
+                const monthlyRecords = firebaseSnapshotToArray(snapshot).filter((record) => record.date.indexOf(monthYearString) > -1)    
+                dispatch({type: "FETCH_RECORDS", monthlyRecords: monthlyRecords})
             })
             .catch((error) => {
                 dispatch({type: "FETCH_RECORDS_ERROR", error})

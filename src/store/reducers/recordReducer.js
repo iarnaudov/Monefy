@@ -8,7 +8,7 @@ const recordReducer = (state = initialState, action) => {
         case "FETCH_RECORDS":
             state = {
                 ...state,
-                records: action.records
+                monthlyRecords: action.monthlyRecords
             }
             break;
         case "FETCH_RECORDS_ERROR":

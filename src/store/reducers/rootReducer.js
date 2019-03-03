@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
     auth: authReducer,
     firestore: firestoreReducer,
     firebase: firebaseReducer,
-    records: recordReducer,
+    monthlyRecords: recordReducer,
     category: categoryReducer,
 });
 

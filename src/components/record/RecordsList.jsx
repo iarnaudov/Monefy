@@ -1,13 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import DateRecords from "./DateRecords";
-import { fetchRecords } from "../../store/actions/recordActions";
 
 class RecordsList extends React.Component {
-    componentDidMount = () => {
-        this.props.fetchRecords(this.props.isAuthenticated);
-    }
-
     groupBy = (xs, key) => {
         return xs.reduce(function (rv, x) {
             (rv[x[key]] = rv[x[key]] || []).push(x);
@@ -29,24 +24,50 @@ class RecordsList extends React.Component {
     }
 
     render() {
-        if (this.props.records) {
-            const componentsList = [];
-            const groupedRecords = this.groupBy(this.props.records, "date");
-            const groupedRecordsKeys =  Object.keys(this.groupBy(this.props.records, "date"));
+        const monthlyReports = this.props.monthlyRecords.monthlyRecords;
 
-            //groupedRecordsKeys = this.orderDates(groupedRecordsKeys);
+        if (monthlyReports) {
+           if (monthlyReports.length > 0) {
+                const componentsList = [];
+                const groupedRecords = this.groupBy(monthlyReports, "date");
+                const groupedRecordsKeys =  Object.keys(this.groupBy(monthlyReports, "date"));
 
-            groupedRecordsKeys.forEach(date => {
-                const dateRecords = groupedRecords[date];
-                const dateComponents = (<DateRecords records={dateRecords} key={date}/>);
-                componentsList.push(dateComponents);
-            });
+                groupedRecordsKeys.forEach(date => {
+                    const dateRecords = groupedRecords[date];
+                    const dateComponents = (<DateRecords records={dateRecords} key={date}/>);
+                    componentsList.push(dateComponents);
+                });
 
-            return (            
-                <div className="records-list">
-                    {componentsList}
-                </div>
-            )
+                let income = 0;
+                let expense = 0;
+
+                for (const report of monthlyReports) {
+                    if (report.category.type === "expense") {
+                        expense += +report.total
+                    } else if (report.category.type === "income") {
+                        income += +report.total
+                    }
+                }
+
+                let total = income - expense;
+
+                return (
+                    <div>
+                        <div className="records-totals"> 
+                            <span>Income: {income}</span><span>Expense: {expense}</span><span>Total: {total}</span>
+                        </div>            
+                        <div className="records-list">
+                            {componentsList}
+                        </div>
+                    </div>
+                )
+           } else {
+                return (            
+                    <div className="records-list">
+                        No Records for this period.
+                    </div>
+                ) 
+           }
         } else {
             return (            
                 <div className="records-list">
@@ -59,15 +80,10 @@ class RecordsList extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        records: state.records.records,
-        isAuthenticated: state.firebase.auth.uid
+        isAuthenticated: state.firebase.auth.uid,
+        monthlyRecords: state.monthlyRecords
     }
 }
 
-const mapDispatchToProps = (dispach) => {
-    return {
-        fetchRecords: (userId) => dispach(fetchRecords(userId))
-    }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(RecordsList);
+export default connect(mapStateToProps)(RecordsList);

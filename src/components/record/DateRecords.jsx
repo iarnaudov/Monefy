@@ -15,7 +15,7 @@ class DateRecords extends React.Component {
     componentDidMount() {
         $(".date-card-row").on("click", (e) => {
             const recordId = $(e.target).closest(".date-card-row").attr("data-id")
-            this.props.history.push(`/addRecord?${recordId}`)
+            this.props.history.push(`/recordsForm?${recordId}`)
         })
     }
 

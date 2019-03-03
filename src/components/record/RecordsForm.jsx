@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 
 declare var M
 
-class AddRecord extends React.Component {
+class RecordsForm extends React.Component {
     state = {
         category: "",
         title: "",
@@ -118,9 +118,8 @@ class AddRecord extends React.Component {
                 cancelButtonColor: "#d6042a",
                 focusConfirm: false,
                 showCancelButton: true,
-            }).then(value => {
-                if(value) {
-                    debugger;
+            }).then(result => {
+                if(result.value) {
                     this.props.deleteRecord(this.props.history.location.search.slice(1), this.props.history);
                 }
                 
@@ -298,7 +297,7 @@ class AddRecord extends React.Component {
             <div className="form-container">
                 <form className="white" onSubmit={(e) => this.handleSubmit(e)}>
                     <h5 className="grey-text text-darken-3 center">Add Record</h5>
-                    <i class="fas fa-times-circle right deleteRecord"></i>
+                    <i className="fas fa-trash-alt right deleteRecord"></i>
                     <div className="row">
                         <div className="input-field col s12 offset-s5">
                             <i id="categoryIcon" className="far fa-check-circle" onClick={() => this.openCategoryModal()}></i>
@@ -363,4 +362,4 @@ const mapDispatchToProps = (dispach) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddRecord)
+export default connect(mapStateToProps, mapDispatchToProps)(RecordsForm)
