@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import DateRecords from "./DateRecords";
 
 class RecordsList extends React.Component {
+
     groupBy = (xs, key) => {
         return xs.reduce(function (rv, x) {
             (rv[x[key]] = rv[x[key]] || []).push(x);
@@ -27,14 +28,14 @@ class RecordsList extends React.Component {
         const monthlyReports = this.props.monthlyRecords.monthlyRecords;
 
         if (monthlyReports) {
-           if (monthlyReports.length > 0) {
+            if (monthlyReports.length > 0) {
                 const componentsList = [];
                 const groupedRecords = this.groupBy(monthlyReports, "date");
-                const groupedRecordsKeys =  Object.keys(this.groupBy(monthlyReports, "date"));
+                const groupedRecordsKeys = Object.keys(this.groupBy(monthlyReports, "date"));
 
                 groupedRecordsKeys.forEach(date => {
                     const dateRecords = groupedRecords[date];
-                    const dateComponents = (<DateRecords records={dateRecords} key={date}/>);
+                    const dateComponents = (<DateRecords records={dateRecords} key={date} />);
                     componentsList.push(dateComponents);
                 });
 
@@ -53,23 +54,23 @@ class RecordsList extends React.Component {
 
                 return (
                     <div>
-                        <div className="records-totals"> 
+                        <div className="records-totals">
                             <span>Income: {income}</span><span>Expense: {expense}</span><span>Total: {total}</span>
-                        </div>            
+                        </div>
                         <div className="records-list">
                             {componentsList}
                         </div>
                     </div>
                 )
-           } else {
-                return (            
+            } else {
+                return (
                     <div className="records-list">
                         No Records for this period.
                     </div>
-                ) 
-           }
+                )
+            }
         } else {
-            return (            
+            return (
                 <div className="records-list">
                     Loading...
                 </div>
