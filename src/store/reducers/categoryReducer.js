@@ -1,26 +1,4 @@
-const initialState = {
-    categories: [
-        {
-            id: "1",
-            name: "House",
-            icon: "tohoo",
-            color: "red",
-            userId: "default"
-        }, {
-            id: "2",
-            name: "Cat",
-            icon: "gdfg",
-            color: "red",
-            userId: "default"
-        }, {
-            id: "3",
-            name: "Car",
-            icon: "gfg",
-            color: "red",
-            userId: "default"
-        }
-    ]
-}
+const initialState = {}
 
 const categoryReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -28,6 +6,12 @@ const categoryReducer = (state = initialState, action) => {
             console.log("Created category", action);
             return state;
         case "ADD_CATEGORY_ERROR":
+            console.log("Create project error", action.error);
+            return state;
+        case "DELETE_CATEGORY":
+            console.log("Deleted category");
+            return state;
+        case "DELETE_CATEGORY_ERROR":
             console.log("Create project error", action.error);
             return state;
         default:

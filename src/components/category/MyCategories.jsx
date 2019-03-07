@@ -3,7 +3,9 @@ import firebase from 'firebase/app';
 import "firebase/firestore";
 import { firebaseSnapshotToArray } from "../../utility";
 import { connect } from "react-redux";
+import { deleteCategory } from "../../store/actions/categoryActions"
 import Swal from 'sweetalert2';
+import $ from "jquery"
 
 export class MyCategories extends Component {
 
@@ -15,7 +17,9 @@ export class MyCategories extends Component {
         this.getUserCategories();
     }
 
-    openCategoryWindow(recordId) {
+    openCategoryWindow(e, recordId) {
+        const deleteBtn = e.target;
+
         Swal.fire({
             title: "Delete this category?",
             text: "This will delete all the records related to this category",
@@ -27,12 +31,12 @@ export class MyCategories extends Component {
             focusConfirm: false,
             showCancelButton: true,
         }).then((result) => {
-            if(result.value) {
-                // delete category and all of its occurencies
-                console.log(recordId);
+            if (result.value) {
+                $(deleteBtn).closest(".row").remove();
+                this.props.deleteCategory(recordId);
             }
         })
-        
+
     }
 
     getUserCategories() {
@@ -62,14 +66,14 @@ export class MyCategories extends Component {
                     {
                         this.state.categories.map((category) => {
                             return <div className="row" key={category.id}>
-                                        <div className="category-row">
-                                            <div className="col s3">
-                                                <i className={`${category.icon[0]} + " " + ${category.icon[1]}`} style={{ color: category.color }}></i>
-                                            </div>
-                                            <div className="col s8 category-title">{category.name}</div>
-                                            <i className="fas fa-trash-alt right deleteCategory" onClick={() => this.openCategoryWindow(category.id)}></i>
-                                        </div>
+                                <div className="category-row">
+                                    <div className="col s3">
+                                        <i className={`${category.icon[0]} + " " + ${category.icon[1]}`} style={{ color: category.color }}></i>
                                     </div>
+                                    <div className="col s8 category-title">{category.name}</div>
+                                    <i className="fas fa-trash-alt right deleteCategory" onClick={(e) => this.openCategoryWindow(e, category.id)}></i>
+                                </div>
+                            </div>
                         })
                     }
                 </div>
@@ -91,4 +95,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(MyCategories)
+const mapDispatchToProps = (dispach) => {
+    return {
+        deleteCategory: (categoryId) => dispach(deleteCategory(categoryId))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyCategories)

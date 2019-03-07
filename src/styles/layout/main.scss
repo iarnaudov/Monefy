@@ -2,17 +2,19 @@
 
 $veryLightGray: #f3f3f3;
 $lightGray: #b4b1b1;
-$hoverColor: #e9f5ff;
+$hoverColor: #e9fff5;
 $cyan: #01a59a;
-$pink:rgba(255,99,132,1);
+$pink:rgba(255, 99, 132, 1);
 $blue: rgba(54, 162, 235, 1);
 $yellow: rgba(255, 206, 86, 1);
 $lightBlue: rgba(75, 192, 192, 1);
 $violet: rgba(153, 102, 255, 1);
 $orange: rgba(255, 159, 64, 1);
+$red:rgba(206, 12, 12, 0.904);
+$green:  #18af69;
 
 .row {
-    margin:0 !important;
+    margin: 0 !important;
 }
 
 ul.navbar li a:hover {
@@ -21,15 +23,16 @@ ul.navbar li a:hover {
 }
 
 .rightMer {
-    margin-left:55px;
+    margin-left: 55px;
 }
 
 .form-container {
-    width:30%;
+    width: 30%;
     margin: 0 auto;
 
     p.radioButton {
         display: inline-block;
+
         label {
             padding: 0px 20px;
         }
@@ -47,17 +50,20 @@ i {
     cursor: pointer;
     padding: 5px 10px;
 }
+
 .deleteRecord {
     font-size: 25px;
-    color:rgba(206, 12, 12, 0.904);
+    color: $red;
 }
+
 .deleteCategory {
     font-size: 30px;
-    color: rgba(206, 12, 12, 0.904);
+    color: $red;
     position: absolute;
     left: 65%;
     line-height: 40px;
 }
+
 .categoryIconContainer {
     display: inline-block;
 }
@@ -78,44 +84,53 @@ i {
             }
         }
     }
+
     &-title {
         line-height: 45px;
         font-size: 26px;
     }
+
     &-row {
         &:hover {
             background-color: $hoverColor;
         }
     }
 }
+
 .records {
     &-list {
         margin-top: 30px;
 
         .date-card {
-            border:1px solid $lightGray;
+            border: 1px solid $lightGray;
             margin-bottom: 30px;
 
             &-date-total-info {
                 line-height: 30px;
-                border:1px solid $lightGray;
+                border: 1px solid $lightGray;
             }
+
             &-date {
                 margin-left: 10px;
             }
+
             &-total {
                 margin-right: 10px;
+
                 span {
                     padding: 7px;
                 }
             }
+
             &-title {
                 line-height: 50px;
                 font-size: 20px;
             }
+
             &-row {
-                border:1px solid $lightGray;
+                border: 1px solid $lightGray;
                 cursor: pointer;
+
                 &:hover {
                     background-color: $hoverColor;
                 }
@@ -126,11 +141,14 @@ i {
             }
         }
     }
+
     &-totals {
         text-align: center;
+
         span {
             padding: 20px;
         }
+
         span:nth-child(2) {
             border-right: 2px solid $blue;
             border-left: 2px solid $blue;
@@ -143,13 +161,13 @@ i {
     margin: 0 auto;
 
     ul.tabs {
-        margin-top:30px;
+        margin-top: 30px;
     }
 
     .datepickers-container {
         padding: 0;
 
-         .month-picker {
+        .month-picker {
             background: gray;
             border: 1px solid gray;
 
@@ -164,13 +182,14 @@ i {
                     color: white;
                 }
             }
+
             & .selectedMonth {
-                    background: $blue;
-                    color: white; 
+                background: $blue;
+                color: white;
             }
         }
 
-         .year-picker {
+        .year-picker {
             border: 1px solid gray;
 
             display: flex;
@@ -186,25 +205,48 @@ i {
                     background: $blue;
                     color: white;
                 }
-            
+
 
             }
 
             &.row:after {
-                    content: unset !important;
+                content: unset !important;
             }
 
             & .selectedYear {
                 background: $blue;
-                color: white; 
+                color: white;
             }
 
         }
     }
-
-   
-
-   
 }
 
+.users {
+    &-container {
+        width: 30%;
+        margin: 50px auto;
 
+        .row {
+            border: 1px solid $lightGray;
+            box-shadow: 0 0 1px 0px black;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $hoverColor;
+            }
+
+            i {
+                font-size: 25px;
+
+                &.fas.fa-user-check {
+                    color: $green;
+                }
+    
+                &.fas.fa-user-alt-slash {
+                    color: $red;
+                }
+            }
+        }
+    }
+}

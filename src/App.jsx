@@ -9,6 +9,7 @@ import Register from './components/Auth/Register';
 import CategoriesForm from './components/Category/CategoriesForm';
 import MyCategories from './components/Category/MyCategories';
 import RecordsForm from './components/Record/RecordsForm';
+import UserManagement from './components/UsersManagement/UsersManagement';
 
 class App extends Component {
   render() {
@@ -24,6 +25,7 @@ class App extends Component {
             <Route path="/categoriesForm" component={CategoriesForm} />
             <Route path="/recordsForm" component={RecordsForm} />
             <Route path="/myCategories" component={MyCategories} />
+            <Route path="/usersManagement" component={UserManagement} />
           </Switch>
         </div>
       </BrowserRouter>
