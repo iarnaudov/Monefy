@@ -168,13 +168,14 @@ i {
         padding: 0;
 
         .month-picker {
-            background: gray;
             border: 1px solid gray;
+            display: flex;
+            flex-wrap: wrap;
 
             .month-select {
                 background: white;
                 display: inline-block;
-                padding: 10px;
+                padding: 10px 5px;
                 cursor: pointer;
 
                 &:hover {
@@ -193,12 +194,13 @@ i {
             border: 1px solid gray;
 
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-around;
 
             .year-select {
                 background: white;
                 display: inline-block;
-                padding: 10px 30px;
+                padding: 10px 20px;
                 cursor: pointer;
 
                 &:hover {
@@ -247,6 +249,52 @@ i {
                     color: $red;
                 }
             }
+
+            .user-title {
+                line-height: 35px;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.blockedDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #990729;
+    
+    span {
+        padding: 30px 20px;
+        background-color: white;
+        border-radius: 10px;
+    }
+}
+
+#dasboard-loggedOut {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    background-color: #bcfce6;
+    font-size: 30px;
+
+    input {
+        margin-top: 30px;
+        border-radius: 5px;
+        padding: 10px 24px;
+        background-color:#044497;
+        color: white;
+        font-weight: 600;
+        font-size: 20px; 
+        cursor: pointer;
+        border-radius: 15px;
+        outline: none;
+
+        &:hover {
+            background-color: rgb(7, 41, 104);
         }
     }
 }

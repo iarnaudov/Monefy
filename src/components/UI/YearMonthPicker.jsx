@@ -6,11 +6,11 @@ export default class YearMonthPicker extends Component {
     return (
         <div className="input-field col s12 center-align datepickers-container">
             <div className="year-picker row">
-                <div className="year-select" data-year="2017" onClick={(e) => this.props.selectYear(e)}>2017</div>
-                <div className="year-select" data-year="2018" onClick={(e) => this.props.selectYear(e)}>2018</div>
-                <div className="year-select" data-year="2019" onClick={(e) => this.props.selectYear(e)}>2019</div>
-                <div className="year-select" data-year="2020" onClick={(e) => this.props.selectYear(e)}>2020</div>
-                <div className="year-select" data-year="2021" onClick={(e) => this.props.selectYear(e)}>2021</div>
+                <div className="year-select col s2" data-year="2017" onClick={(e) => this.props.selectYear(e)}>2017</div>
+                <div className="year-select col s2" data-year="2018" onClick={(e) => this.props.selectYear(e)}>2018</div>
+                <div className="year-select col s2" data-year="2019" onClick={(e) => this.props.selectYear(e)}>2019</div>
+                <div className="year-select col s2" data-year="2020" onClick={(e) => this.props.selectYear(e)}>2020</div>
+                <div className="year-select col s2" data-year="2021" onClick={(e) => this.props.selectYear(e)}>2021</div>
             </div>
             <div className="month-picker row">
                 <div className="month-select col s1" data-month="01" onClick={(e) => this.props.selectMonth(e)}>Jan</div>

@@ -18,14 +18,14 @@ const LoggedInLinks = (props) => {
     }
 
     return (
-        <ul className="right navbar">
+        <div>
             {createRecord}
             <li><NavLink to="/categoriesForm">{createCategory}</NavLink></li>
             <li><NavLink to="/myCategories">{categories}</NavLink></li>
             {userManagement}
             <li><NavLink to="/" onClick={props.logOutUser}>Log Out</NavLink></li>
             <li><NavLink to="/" className="btn blue lighten-1">Welcome, {props.username}</NavLink></li>
-        </ul>
+        </div>
     )
 }
 

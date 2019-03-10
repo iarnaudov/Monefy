@@ -12,8 +12,10 @@ declare var M;
 class Dashboard extends React.Component {
 
     componentDidMount() {
-        this.getMonthlyRecors()
-        this.preselectCurrentMonthYear();
+        if (this.props.isAuthenticated) {
+            this.getMonthlyRecors()
+            this.preselectCurrentMonthYear();
+        }
     }
 
     getMonthlyRecors() {
@@ -65,8 +67,8 @@ class Dashboard extends React.Component {
         return (
             <div className="dashboard">
                 <div className="row">
-                    <div className="col s12 m6">
-                        <div className="input-field col s12 center-align datepickers-container">
+                    <div className="col m12 l6">
+                        <div className="input-field col m12 center-align datepickers-container">
                             <YearMonthPicker selectYear={(e) => this.selectYear(e)} selectMonth={(e) => this.selectMonth(e)} />
                         </div>
                         <RecordsList />
