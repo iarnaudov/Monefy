@@ -12,7 +12,7 @@ Monefy helps you track your monthly expenses.
 * Responsive Design
 * Error handling and data validation
 * jQuery (general helper)
-* Materialize Css (layout, responsive design, input pickers)
-* SweetAlert2 (modals and notifications)
-* FontAwesome (icons)
-* Chart.js (pie and line charts)
+* Materialize CSS (layout, responsive design, input pickers)
+* SweetAlert2 (Modals and Notifications)
+* FontAwesome (Icons)
+* Chart.js (Pie and Line Charts)
