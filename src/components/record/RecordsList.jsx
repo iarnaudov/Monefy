@@ -54,8 +54,10 @@ class RecordsList extends React.Component {
 
                 return (
                     <div>
-                        <div className="records-totals">
-                            <span>Income: {income}</span><span>Expense: {expense}</span><span>Total: {total}</span>
+                        <div className="records-totals row">
+                            <span class="col s4">Income: {income}</span>
+                            <span class="col s4">Expense: {expense}</span>
+                            <span class="col s4">Total: {total}</span>
                         </div>
                         <div className="records-list">
                             {componentsList}

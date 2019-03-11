@@ -67,8 +67,8 @@ class Dashboard extends React.Component {
         return (
             <div className="dashboard">
                 <div className="row">
-                    <div className="col m12 l6">
-                        <div className="input-field col m12 center-align datepickers-container">
+                    <div className="col s12 xl6">
+                        <div className="input-field col s12 center-align datepickers-container">
                             <YearMonthPicker selectYear={(e) => this.selectYear(e)} selectMonth={(e) => this.selectMonth(e)} />
                         </div>
                         <RecordsList />

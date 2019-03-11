@@ -58,7 +58,7 @@ class App extends Component {
 
   render() {
 
-    if (!this.props.auth.uid && window.location.href.indexOf("/login") === -1) {
+    if (!this.props.auth.uid && window.location.href.indexOf("/login") === -1 && window.location.href.indexOf("/register") === -1) {
       return <LoggedOutDashboard />
     }
 

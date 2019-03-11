@@ -157,16 +157,16 @@ class GraphCharts extends React.Component  {
 
     render() {
         return (
-            <div className="col m12 l5 offset-l1">
+            <div className="col m12 l12 xl5 offset-xl1">
                     <ul className="tabs tabs-fixed-width">
                         <li className="tab col m3"><a className="active" href="#pieChartContainer">Pie Chart</a></li>
                         <li className="tab col m3"><a href="#lineChartContainer">Line Chart</a></li>
                     </ul>
-                    <div id="pieChartContainer" className="col m12">
-                        <canvas id="pieChart" width="400" height="400"></canvas>
+                    <div id="pieChartContainer" className="col s12 m12 l12">
+                        <canvas id="pieChart" width="300" height="300"></canvas>
                     </div>
-                    <div id="lineChartContainer" className="col m12">
-                        <canvas id="lineChart" width="800" height="600"></canvas>
+                    <div id="lineChartContainer" className="col s12 m12 l12">
+                        <canvas id="lineChart" width="300" height="300"></canvas>
                     </div>
                 </div>
         )

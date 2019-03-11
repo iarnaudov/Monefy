@@ -319,6 +319,7 @@ class RecordsForm extends React.Component {
                             <input
                                 type="text"
                                 id="title"
+                                maxlength="50"
                                 className="validate"
                                 onChange={(e) => this.handleChange(e)} />
                         </div>
@@ -330,6 +331,7 @@ class RecordsForm extends React.Component {
                                 type="text"
                                 id="total"
                                 pattern="\d+\.?\d{0,2}"
+                                maxlength="10"
                                 className="validate"
                                 onChange={(e) => this.handleChange(e)} />
                             <span

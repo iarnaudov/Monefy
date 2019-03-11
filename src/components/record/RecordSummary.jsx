@@ -7,13 +7,13 @@ const RecordSummary = (props) => {
     return (
         <div className="date-card-row" data-id={record.id}>
             <div className="row">
-                <div className="col s2">
+                <div className="col s3 m2">
                     <Icon category={record.category} />
                 </div>
-                <div className="col s7">
+                <div className="col s6 m7">
                     <span className="date-card-title">{record.title}</span>
                 </div>
-                <div className="col s3">
+                <div className="col s3 m3">
                     <p className="right money">{record.category.type === "expense" ? "-" : "+"}{record.total}</p>
                     </div>
             </div>

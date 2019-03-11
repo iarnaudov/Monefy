@@ -11,7 +11,7 @@ $lightBlue: rgba(75, 192, 192, 1);
 $violet: rgba(153, 102, 255, 1);
 $orange: rgba(255, 159, 64, 1);
 $red:rgba(206, 12, 12, 0.904);
-$green:  #18af69;
+$green: #18af69;
 
 .row {
     margin: 0 !important;
@@ -23,7 +23,7 @@ ul.navbar li a:hover {
 }
 
 .rightMer {
-    margin-left: 55px;
+    margin-left: 0;
 }
 
 .form-container {
@@ -244,7 +244,7 @@ i {
                 &.fas.fa-user-check {
                     color: $green;
                 }
-    
+
                 &.fas.fa-user-alt-slash {
                     color: $red;
                 }
@@ -264,7 +264,7 @@ i {
     justify-content: center;
     height: 100vh;
     background-color: #990729;
-    
+
     span {
         padding: 30px 20px;
         background-color: white;
@@ -278,23 +278,57 @@ i {
     justify-content: center;
     text-align: center;
     height: 100vh;
-    background-color: #bcfce6;
-    font-size: 30px;
+    font-size: 25px;
+    color: white;
+
+    background-image: url(../img/homePage.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    #textSpan {
+        font-size: 19px;
+        padding: 20px;
+
+        span {
+            cursor: pointer;
+            margin-left: 10px;
+            padding: 10px;
+
+            &:hover {
+                background-color: $blue;
+                border-radius: 5px;
+            }
+        }
+
+    }
 
     input {
         margin-top: 30px;
         border-radius: 5px;
         padding: 10px 24px;
-        background-color:#044497;
+        background-color: $blue;
         color: white;
         font-weight: 600;
-        font-size: 20px; 
+        font-size: 20px;
         cursor: pointer;
-        border-radius: 15px;
         outline: none;
 
         &:hover {
-            background-color: rgb(7, 41, 104);
+            background-color: rgb(39, 96, 202);
         }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .form-container, .category-container, .users-container {
+        width: 80%;
+    }
+
+    .brand-logo {
+        left: 10% !important;
+    }
+
+    .rightMer {
+        margin-left: 10%;
     }
 }
